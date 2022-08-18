@@ -1,8 +1,7 @@
-// $primary:;
+$primary: #b31180;
 // $secondary:;
 
-
-$container: 1280;
+$container: 1200;
 
 $laptop: 1024px;
 $bigTablet: 992px;
@@ -15,5 +14,20 @@ $smallPhone: 320px;
    $addSize: $computerSize - $mobileSize;
    $maxWidth: $container - 320;
    font-size: calc(#{$mobileSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin adaptive-tablet($value, $computerSize, $mobileSize) {
+   $addSize: $computerSize - $mobileSize;
+   $maxWidth: $container - 767;
+   #{$value}: calc(#{$mobileSize + px} + #{$addSize} * ((100vw - 767px) / #{$maxWidth}));
+}
+@mixin adaptive($value, $computerSize, $mobileSize) {
+   $addSize: $computerSize - $mobileSize;
+   $maxWidth: $container - 320;
+   #{$value}: calc(#{$mobileSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin flex($ai, $jc) {
+   display: flex;
+   align-items: $ai;
+   justify-content: $jc;
 }
 // font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); CSS

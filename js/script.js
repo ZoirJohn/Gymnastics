@@ -1,5 +1,25 @@
 'use strict';
 console.clear();
+
+const aLinks = document.querySelectorAll('a');
+if (aLinks.length >= 0) {
+   aLinks.forEach((a) => {
+      a.addEventListener('click', refresh);
+      function refresh(e) {
+         e.preventDefault();
+      }
+   });
+}
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+if (burger && menu) {
+   burger.addEventListener('click', menuOpenFunction);
+   function menuOpenFunction() {
+      burger.classList.toggle('cross_');
+      menu.classList.toggle('open_');
+   }
+}
 // Magic header
 // const  = document.querySelector('');
 // window.addEventListener('scroll', fixing);
@@ -11,7 +31,6 @@ console.clear();
 //       .classList.add('p');
 //    }
 // }
-
 
 // const parallaxItemsXY = document.querySelectorAll('[data-depth]');
 // const parallaxItemsXorY = document.querySelectorAll('[data-depthX]');
