@@ -1,0 +1,19 @@
+// $primary:;
+// $secondary:;
+
+
+$container: 1280;
+
+$laptop: 1024px;
+$bigTablet: 992px;
+$tablet: 767px;
+$bigPhone: 425px;
+$mediumPhone: 375px;
+$smallPhone: 320px;
+
+@mixin adaptive-font($computerSize, $mobileSize) {
+   $addSize: $computerSize - $mobileSize;
+   $maxWidth: $container - 320;
+   font-size: calc(#{$mobileSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+// font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); CSS

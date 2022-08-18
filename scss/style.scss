@@ -1,0 +1,34 @@
+// Подготовка к вёрстке //
+@import '_variables.scss';
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+a {
+   text-decoration: none;
+   color: #000;
+}
+body,
+.wrapper {
+   width: 100%;
+   height: 100%;
+   font-family: 'Roboto';
+}
+.wrapper {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+.container {
+   max-width: $container + px;
+   margin: 0px auto;
+   height: 100%;
+}
+
+@import 'header.scss';
+@import 'main.scss';
+@import 'footer.scss';
+p{
+	display: inline-block;
+}
