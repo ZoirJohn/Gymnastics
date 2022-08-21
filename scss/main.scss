@@ -5,8 +5,6 @@
 // ! Subscription *2
 .subscription {
    width: 100%;
-   &__container {
-   }
 
    &__body {
       @media (max-width: $mediumPhone) {
