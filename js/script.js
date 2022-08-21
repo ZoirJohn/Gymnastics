@@ -1,6 +1,7 @@
 'use strict';
-console.clear();
+// console.clear();
 
+// Nullstyle
 const aLinks = document.querySelectorAll('a');
 if (aLinks.length >= 0) {
    aLinks.forEach((a) => {
@@ -11,26 +12,31 @@ if (aLinks.length >= 0) {
    });
 }
 
+// Menu-burger
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.menu');
+const body = document.querySelector('body');
 if (burger && menu) {
    burger.addEventListener('click', menuOpenFunction);
    function menuOpenFunction() {
       burger.classList.toggle('cross_');
       menu.classList.toggle('open_');
+      body.classList.toggle('lock_');
    }
 }
+
 // Magic header
-// const  = document.querySelector('');
-// window.addEventListener('scroll', fixing);
-// function fixing() {
-//    if (scrollY <= .getBoundingClientRect().height * 2) {
-//       .style.transform = `translate(0,-${scrollY}px)`;
-//       .classList.remove('p');
-//    } else {
-//       .classList.add('p');
-//    }
-// }
+const header = document.querySelector('.header');
+window.addEventListener('scroll', fixHeader);
+function fixHeader() {
+   if (scrollY <= document.documentElement.clientHeight * 2) {
+      header.style.transform = `translate(0,-${scrollY}px)`;
+      header.classList.remove('fix_');
+   } else {
+      header.classList.add('fix_');
+   }
+}
+console.log(window);
 
 // const parallaxItemsXY = document.querySelectorAll('[data-depth]');
 // const parallaxItemsXorY = document.querySelectorAll('[data-depthX]');

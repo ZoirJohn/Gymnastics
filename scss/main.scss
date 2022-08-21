@@ -1,4 +1,151 @@
-#page{
-	min-height: 100vh;
-	border: 1px solid #000;
+.main {
+   @include adaptive-tablet(margin-top, 135, 70);
+   @include adaptive(padding-top, 160, 95);
+}
+// ! Subscription *2
+.subscription {
+   width: 100%;
+   &__container {
+   }
+
+   &__body {
+      @media (max-width: $mediumPhone) {
+         padding-left: 20px;
+         padding-right: 20px;
+      }
+      @media (max-width: $smallPhone) {
+         padding-left: 2px;
+         padding-right: 2px;
+      }
+   }
+
+   &-kids {
+      margin: 8em 0 0 0;
+   }
+}
+
+.body-subscription {
+   &__header {
+      h1 {
+         font-family: 'Manrope';
+         font-style: normal;
+         font-weight: 500;
+         @include adaptive(font-size, 40, 28);
+         line-height: 150%;
+         text-align: center;
+      }
+   }
+
+   &__decription {
+      padding: 25px 0 0 0;
+      @include flex(center, center);
+      h4 {
+         font-weight: 500;
+         @include adaptive(font-size, 32, 20);
+         line-height: 150%;
+         text-align: center;
+      }
+      img {
+         margin: 0 17px 0 0;
+      }
+   }
+}
+
+.card {
+   width: 100%;
+   padding-top: 4.5em;
+   @include adaptive-tablet(padding-left, 190, 120);
+   @include adaptive-tablet(padding-right, 190, 120);
+   @include flex(center, space-between);
+   .__icon-one {
+      font-size: 2.8rem;
+   }
+   .__icon-card {
+      font-size: 2.8rem;
+   }
+   &__payment {
+      @include flex(center, center);
+      flex-direction: column;
+      width: 270px;
+      min-height: 280px;
+      background: linear-gradient(175.51deg, #ff3dec 3.64%, #ffbcfd 112.01%);
+      box-shadow: 0px 1px 29px rgba(255, 141, 237, 0.63);
+      border-radius: 55px;
+   }
+   .card-text {
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 220%;
+      color: #ffffff;
+   }
+
+   .card-cost {
+      @extend .card-text;
+      font-size: 1.87rem;
+      line-height: 150%;
+      padding: 0 0 0.73em 0;
+   }
+
+   .card-button {
+      border: 1px solid #fff;
+      background: transparent;
+      border-radius: 60px;
+      padding: 1em 2em;
+      color: #fff;
+      transition: background 800ms ease;
+      @media (min-width: $tablet) {
+         &:hover {
+            border: 1px solid transparent;
+            background: linear-gradient(93.37deg, #7775e7 0%, #a93cf6 65.9%, #c41dff 102.69%);
+         }
+      }
+   }
+   @media (max-width: $bigTablet) {
+      padding-left: 4em;
+      padding-right: 4em;
+   }
+   @media (max-width: $tablet) {
+      flex-direction: column;
+      padding-left: 0;
+      padding-right: 0;
+   }
+   @media (max-width: $tablet) {
+      gap: 1.9em;
+   }
+}
+
+.timetable-subscription {
+   padding: 4.5em 0 0 0;
+   &__body {
+      display: grid;
+      grid-template: auto/repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid #d5cff5;
+      background: #d5cff5;
+      max-width: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0 auto;
+   }
+
+   &__header {
+      grid-column: 1/4;
+      color: #000;
+      text-align: center;
+      margin: 0 0 3.5em 0;
+   }
+
+   &__days {
+      color: #fff;
+      background: linear-gradient(90deg, #bbbbf0 0%, #d8a0fa 71.12%);
+      text-align: center;
+      padding: 1.5em 0 1.5em;
+   }
+
+   &__times {
+      color: $secondary;
+      background: #fff;
+      text-align: center;
+      padding: 1.5em 0 1.5em;
+   }
 }

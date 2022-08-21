@@ -4,6 +4,7 @@
    background: #fff;
    @include adaptive-tablet(padding-top, 15, 5);
    @include adaptive-tablet(padding-bottom, 15, 5);
+	transition: all 400ms ease-out;
    &__container {
       @include flex(flex-start, space-between);
    }
@@ -13,6 +14,8 @@
       z-index: 3;
       @include adaptive-tablet(padding-right, 16, 5);
       img {
+         min-width: 70px;
+         max-width: 200px;
          @include adaptive-tablet(width, 175, 70);
       }
    }
@@ -39,16 +42,15 @@
       z-index: 2;
    }
    @media (max-width: $tablet) {
-		padding-top: 5px;
-		padding-bottom: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       &__logo {
          padding-right: 0;
-
-         img {
-            width: 70px !important;
-         }
       }
    }
+	&.fix_{
+		transform: translate(0,0) !important;
+	}
 }
 
 .menu {
@@ -60,7 +62,7 @@
          list-style: none;
       }
       li {
-			text-align: center;
+         text-align: center;
          &:not(:last-child) {
             @include adaptive-tablet(padding-right, 45, 20);
          }
@@ -102,6 +104,7 @@
          overflow: auto;
          transition: all 600ms ease;
          transform: translate(0, -200%);
+         padding: 0 0 5em 0;
          .nav__list {
             flex-direction: column;
             height: 100%;
@@ -130,6 +133,7 @@
       p {
          white-space: nowrap;
          @include adaptive-font(16, 12);
+         font-weight: 700;
       }
    }
 
@@ -137,6 +141,7 @@
       @include flex(center, space-between);
       @include adaptive-tablet(padding-top, 0, 10);
       a {
+         transition: all 500ms ease;
          @media (min-width: $tablet) {
             &:hover {
                transform: scale(1.5);
@@ -155,9 +160,15 @@
          }
       }
    }
-		@media (max-width: $bigPhone) {
-			padding: 0 4em 0 0;
-		}
+   @media (max-width: $bigPhone) {
+      padding: 0 4em 0 0;
+      &__icons {
+         gap: 20px;
+      }
+      &__number {
+         color: #fff;
+      }
+   }
 }
 .burger {
    display: none;
@@ -165,10 +176,11 @@
       display: block;
       position: absolute;
       right: 0;
-      top: 25%;
+      top: 50%;
       z-index: 10;
       width: 40px;
       height: 25px;
+		transform: translateY(-50%);
       &::before,
       &::after,
       &__icon {
@@ -204,4 +216,7 @@
          }
       }
    }
+	@media (max-width: $bigPhone) {
+		transform: translateY(50%);
+	}
 }
