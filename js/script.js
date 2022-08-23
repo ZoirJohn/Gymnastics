@@ -27,16 +27,16 @@ if (burger && menu) {
 
 // Magic header
 const header = document.querySelector('.header');
+const headerPosition = header.getBoundingClientRect().bottom * 3;
 window.addEventListener('scroll', fixHeader);
 function fixHeader() {
-   if (scrollY <= document.documentElement.clientHeight * 2) {
+   if (scrollY <= headerPosition) {
       header.style.transform = `translate(0,-${scrollY}px)`;
       header.classList.remove('fix_');
    } else {
       header.classList.add('fix_');
    }
 }
-console.log(window);
 
 // const parallaxItemsXY = document.querySelectorAll('[data-depth]');
 // const parallaxItemsXorY = document.querySelectorAll('[data-depthX]');

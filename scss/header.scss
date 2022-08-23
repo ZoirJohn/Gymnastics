@@ -4,7 +4,7 @@
    background: #fff;
    @include adaptive-tablet(padding-top, 15, 5);
    @include adaptive-tablet(padding-bottom, 15, 5);
-	transition: all 400ms ease-out;
+   // transition: all 400ms ease-out;
    &__container {
       @include flex(flex-start, space-between);
    }
@@ -48,9 +48,25 @@
          padding-right: 0;
       }
    }
-	&.fix_{
-		transform: translate(0,0) !important;
-	}
+   &.fix_ {
+      transform: translate(0, 0) !important;
+      transition: all 400ms ease-out;
+      background: #ffffffee;
+      padding: 0;
+      border: 1px solid #00000011;
+		z-index: 2;
+      &::before {
+         background: #ffffff00;
+      }
+      @media (min-width: $tablet) {
+         img {
+            transform: scale(0.6);
+         }
+         .menu {
+            padding: 50px 0 0 0;
+         }
+      }
+   }
 }
 
 .menu {
@@ -180,7 +196,7 @@
       z-index: 10;
       width: 40px;
       height: 25px;
-		transform: translateY(-50%);
+      transform: translateY(-50%);
       &::before,
       &::after,
       &__icon {
@@ -216,7 +232,7 @@
          }
       }
    }
-	@media (max-width: $bigPhone) {
-		transform: translateY(50%);
-	}
+   @media (max-width: $bigPhone) {
+      transform: translateY(50%);
+   }
 }
