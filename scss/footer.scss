@@ -1,0 +1,36 @@
+.footer {
+   width: 100%;
+   min-height: 150px;
+   background: #000;
+   padding: 36px 0;
+   &__container {
+      @include flex(center, space-between);
+      flex-wrap: wrap;
+		@media (max-width: $tablet) {
+			gap: 5em 0;
+		}
+   }
+
+   &__nav {
+      @include flex(center, center);
+      gap: 0 27px;
+      a {
+         transition: all 400ms ease;
+         &::before {
+            color: #fff;
+         }
+         @media (min-width: $tablet) {
+            &:hover {
+               transform: scale(1.5);
+            }
+         }
+      }
+   }
+
+   &__img {
+      @media (max-width: $tablet) {
+         justify-self: center;
+         margin: 0 auto;
+      }
+   }
+}

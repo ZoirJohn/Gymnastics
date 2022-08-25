@@ -23,6 +23,7 @@ body,
    min-height: 100vh;
    display: flex;
    flex-direction: column;
+	background: #00000001;
 }
 .container {
    max-width: $container + px;

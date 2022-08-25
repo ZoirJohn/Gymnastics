@@ -38,30 +38,20 @@ function fixHeader() {
    }
 }
 
-// const parallaxItemsXY = document.querySelectorAll('[data-depth]');
-// const parallaxItemsXorY = document.querySelectorAll('[data-depthX]');
+const parallaxItemsXY = document.querySelectorAll('[data-depthY]' && '[data-depthX]');
+console.log(parallaxItemsXY);
 
-// function parallax(nodelist) {
-//    if (nodelist.length >= 0) {
-//       nodelist.forEach((item) => {
-//          const parent = item.closest('#page');
-//          parent.addEventListener('mousemove', parallaxOnMove);
-//       });
-//    }
+function parallaxAll(nodelist) {
+   nodelist.forEach((list_item) => {
+      const parent = list_item.closest('section');
+      parent.style.position = 'relative';
+      parent.addEventListener('mousemove', (e) => {
+         let x = e.x;
+         let y = e.y;
+         list_item.style.transform = `translate(${x * list_item.dataset.depthx}px,${y * list_item.dataset.depthy}px)`;
+         list_item.style.transition = `all ${list_item.dataset.transition ? list_item.dataset.transition : 500}ms ease-out`;
+      });
+   });
+}
 
-//    function parallaxOnMove(e) {
-//       const x = e.x;
-//       const y = e.y;
-//       nodelist.forEach((item) => {
-//          if (item.dataset.depthy && item.dataset.depthx && item.dataset.transition) {
-//             item.style.transform = `translate(${x * item.dataset.depthx * 0.1}px,${y * item.dataset.depthy * 0.1}px)`;
-//             item.style.transition = `all ${item.dataset.transition}ms ease-out`;
-//          } else if (item.dataset.depth && item.dataset.transition) {
-//             item.style.transform = `translate(${x * item.dataset.depth * 0.1}px,${y * item.dataset.depth * 0.1}px)`;
-//             item.style.transition = `all ${item.dataset.transition}ms ease-out`;
-//          }
-//       });
-//    }
-// }
-// parallax(parallaxItemsXY);
-// parallax(parallaxItemsXorY);
+parallaxAll(parallaxItemsXY);

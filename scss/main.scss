@@ -1,11 +1,13 @@
 .main {
    @include adaptive-tablet(margin-top, 135, 70);
    @include adaptive(padding-top, 160, 95);
+   overflow: hidden;
 }
 // ! Subscription *2
 .subscription {
    width: 100%;
-
+   position: relative;
+   // overflow: hidden;
    &__body {
       @media (max-width: $mediumPhone) {
          padding-left: 20px;
@@ -150,82 +152,204 @@
 
 // ! Description
 .description {
-	overflow: hidden;
    width: 100%;
-   background: url(../img/description/background.png) 50% 0 / cover no-repeat;
+   display: flex;
+   background: url(../img/description/background.png) center/ cover no-repeat;
+   @include adaptive(margin-top, 165, 140);
+   @include adaptive(padding-top, 300, 100);
+   @include adaptive(padding-bottom, 110, 100);
+   overflow: hidden;
    &__container {
-      @include flex(center, space-between);
-      @include adaptive(padding-top, 350, 100);
+      @include flex(flex-start, center);
+      flex-direction: column;
+      @media (max-width: $mediumPhone) {
+         padding: 0;
+      }
    }
-
-   &__body {
-      color: #fff;
+   @media (max-width: $tablet) {
+      flex-direction: column;
    }
 }
 
 .img-description {
-	position: relative;
-	width: 40%;
+   flex: 50.7%;
+   position: relative;
+   padding: 0 0 20% 0;
    img {
       position: absolute;
-		z-index: 1;
-		left: -93px;
-		bottom: -370px;
-		width: auto;
+      left: -110px;
+      top: 50px;
+      transform: translate(0, -35%);
+      width: 100%;
+      @media (max-width: $bigTablet) {
+         width: 100%;
+      }
    }
-	@media (max-width: $tablet) {
-		img{
-			width: 100%;
-			top: -100px;
-			bottom: 0;
-		}
-	}
+   @media (max-width: $tablet) {
+      order: 2;
+      img {
+         max-width: 50%;
+         left: 0;
+      }
+   }
+   @media (max-width: $mediumPhone) {
+      padding: 0 0 55% 0;
+      img {
+         max-width: 90%;
+      }
+   }
 }
 
 .body-description {
-	padding: 0 0 0 7em;
-   width: 60%;
-	position: relative;
+   width: 49.3%;
+   position: relative;
    &__header {
       h1 {
-         font-size: 2.8125rem;
          font-weight: 500;
-         line-height: 32/45 * 100%;
+         font-size: 2.8125rem;
+         @include adaptive(font-size, 32, 26);
+         line-height: 32px/45px * 100%;
+         color: #ffffff;
       }
    }
 
    &__text {
-      padding: 3.125em 0 1.875em;
+      padding: 1.67rem 0 1em 0;
       width: 85%;
       article {
-         font-size: 1.875rem;
+         font-weight: 400;
+         @include adaptive(font-size, 30, 18);
+         line-height: 150%;
+         color: #ffffff;
       }
    }
 
    &__text-description {
       p {
-         font-size: 1.125rem;
-         font-weight: 400;
-         line-height: 28/18 * 100%;
-         &:not(:last-child) {
-            font-weight: 700;
+         font-weight: 700;
+         @include adaptive(font-size, 18, 11);
+         line-height: 28px/18px * 100%;
+         color: #ffffff;
+         &:nth-child(2) {
+            font-weight: 400;
+            line-height: 32px/18px * 100%;
+            color: #ffffff;
          }
       }
    }
 
    &__links {
-      padding: 5.5em 0 7em 0;
-      width: 90px;
-      @include flex(center, space-between);
+      @include flex(center, center);
+      gap: 0 25px;
+      padding: 5em 0 0 0;
       a {
-         font-size: 33px;
+         transition: all 400ms ease;
          &::before {
             color: #fff;
-            font-size: 1.125rem;
+         }
+         &:hover {
+            transform: scale(1.5);
          }
       }
-		@media (max-width: $tablet) {
-			display: none;
-		}
+      @media (max-width: $tablet) {
+         display: none;
+      }
    }
+
+   @media (max-width: $bigTablet) {
+      width: 70%;
+   }
+   @media (max-width: $tablet) {
+      order: 1;
+      width: 100%;
+      padding: 0 30px;
+   }
+}
+
+// ! Decors
+.decors {
+   position: absolute;
+   z-index: -1;
+}
+
+#decor-1 {
+   top: 50px;
+   right: 150px;
+   max-width: 49px;
+}
+
+#decor-2 {
+   top: -150px;
+   right: 550px;
+   max-width: 49px;
+}
+
+#decor-3 {
+   top: 150px;
+   left: 75px;
+   max-width: 98px;
+}
+
+#decor-4 {
+   bottom: 150px;
+   left: 80px;
+   max-width: 29px;
+}
+#decor-5 {
+   bottom: 150px;
+   right: 80px;
+   max-width: 89px;
+}
+#decor-6 {
+   top: 0;
+   z-index: 1;
+   transform: rotate(180deg);
+}
+.hexagon {
+   position: absolute;
+   width: 80px;
+   height: 50px;
+   background: #d0c5f266;
+   transform: scale(10) rotate(45deg);
+   animation: rotate 20s linear infinite;
+   &::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 25px solid #d0c5f266;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      top: 50px;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 25px solid #d0c5f266;
+   }
+}
+#hex-1 {
+   top: -100px;
+   z-index: -1;
+}
+#hex-2 {
+   top: 100%;
+   right: 0;
+   z-index: inherit;
+}
+
+@keyframes rotate {
+   0% {
+      transform: rotate(45deg) scale(10);
+   }
+   100% {
+      transform: rotate(360deg) scale(10);
+   }
+}
+@media (max-width: $tablet) {
+	.hexagon{
+		display: none;
+	}
 }
