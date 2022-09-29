@@ -7,7 +7,7 @@
 .subscription {
    width: 100%;
    position: relative;
-   // overflow: hidden;
+   z-index: -1;
    &__body {
       @media (max-width: $mediumPhone) {
          padding-left: 20px;
